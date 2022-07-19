@@ -1,6 +1,10 @@
-// Initial action plan
-// Add 3 vars that will store user input (num1, num2, operator)
-// Or possibly having each input in an array.
+// Initial action plan...
+// Have each user input stored into an array
+// Evaluate first 3 elements of array and pop
+// push() evaluated 0-2 indexes of the array to front
+// repeat until...
+// last 3 elements of array
+// evaluate and display result
 
 // Upon clicking on "=" will call upon operate() function
 
@@ -11,6 +15,7 @@
 //         or simply alert them with a universal error (red screen/screen shake/err msg)
 // Additionally: need to verify user has inputed 2 numbers and operator before pressing "="
 
+const testExpression = [3, "add", 2, "add", 3];
 
 function add(a,b) {
     return a + b;
@@ -28,7 +33,7 @@ function divide(a,b) {
     return a / b;
 }
 
-function operate(a,b, operator) {
+function operate(a, operator, b) {
     if(operator == "add") {
         return add(a,b);
     } else if(operator == "subtract") {
@@ -39,3 +44,16 @@ function operate(a,b, operator) {
         return divide(a,b);
     }
 }
+
+function calculate(inputArray) {
+    let total = 0;
+    while(inputArray.length >= 3) {
+        total = operate(inputArray[0], inputArray[1], inputArray[2]);
+        inputArray.splice(0,3);
+        inputArray.unshift(total);
+    }
+    return total;
+}
+
+calculate(testExpression)
+//console.log(operate(testExpression[0], testExpression[1], testExpression[2]));
