@@ -1,0 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center ;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    height: 100vh;
+    width: 100vw;
+}
+
+.calculator {
+    width:45vw;
+}
+
+.buttons button {
+    width:70px;
+    height:50px;
+}
