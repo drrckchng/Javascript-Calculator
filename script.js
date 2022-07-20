@@ -10,21 +10,19 @@
 // Implement alert with a universal error (red screen/screen shake/err msg)
 // Additionally: need to verify user has inputed 2 numbers and operator before pressing "="
 
-const testExpression = [3, "add", 2, "add", 3];
-
 function add(a, b) {
     return a + b;
 }
 
-function subtract(a,b) {
+function subtract(a, b) {
     return a - b;
 }
 
-function multiply(a,b) {
+function multiply(a, b) {
     return a * b;
 }
 
-function divide(a,b) {
+function divide(a, b) {
     return a / b;
 }
 
@@ -50,4 +48,16 @@ function calculate(inputArray) {
     return total;
 }
 
+const calculatorButtons = document.getElementById("calc-buttons");
+
+calculatorButtons.addEventListener('click', (event) => {
+    const isButton = event.target.nodeName === 'BUTTON';
+    if (!isButton) {
+      return;
+    }   
+  
+    console.log(event.target.innerText);
+});
+
+const testExpression = [3, "add", 2, "add", 3];
 console.log(calculate(testExpression));
