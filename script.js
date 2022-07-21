@@ -51,11 +51,9 @@ function calculate(inputArray) {
 const calculatorButtons = document.getElementById("calc-buttons");
 
 calculatorButtons.addEventListener('click', (event) => {
-    const isButton = event.target.nodeName === 'BUTTON';
-    if (!isButton) {
+    if(event.target.nodeName !== 'BUTTON') {
       return;
     }   
-  
     console.log(event.target.innerText);
 });
 
