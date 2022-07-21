@@ -10,6 +10,11 @@
 // Implement alert with a universal error (red screen/screen shake/err msg)
 // Additionally: need to verify user has inputed 2 numbers and operator before pressing "="
 
+// For future implementation
+// if user clicks on "decimal" button...
+// ensure the last value inputted into array is a numkey
+// if numkey, remove last element and add decimal and push() again to array
+
 function add(a, b) {
     return a + b;
 }
@@ -48,14 +53,21 @@ function calculate(inputArray) {
     return total;
 }
 
+function inputVerify(button) {
+    console.log(button.target.classList.value);
+    console.log(button.target.value);
+}
+
 const calculatorButtons = document.getElementById("calc-buttons");
 
 calculatorButtons.addEventListener('click', (event) => {
+    // Do nothing if click is not on a button
     if(event.target.nodeName !== 'BUTTON') {
       return;
-    }   
-    console.log(event.target.innerText);
+    }
+    inputVerify(event);
 });
 
 const testExpression = [3, "add", 2, "add", 3];
+let expression = [];
 console.log(calculate(testExpression));
