@@ -31,6 +31,7 @@ function divide(a, b) {
     return a / b;
 }
 
+// Calls upon the appropriate expression operator function
 function operate(a, operator, b) {
     if(operator == "add") {
         return add(a, b);
@@ -43,6 +44,8 @@ function operate(a, operator, b) {
     }
 }
 
+// Will take tuples of the expression array and call operate() while keeping 
+// track of the total
 function calculate(inputArray) {
     let total = 0;
     while(inputArray.length >= 3) {
@@ -53,6 +56,12 @@ function calculate(inputArray) {
     return total;
 }
 
+// Take the button that has been clicked and determine whether the button
+// is an operator or number.
+// Current Plan:
+// If expression array is empty first value must be a number
+// if the last element is a number next element must be an operator
+// Expression array must end in a number
 function inputVerify(button) {
     console.log(button.target.classList.value);
     console.log(button.target.value);
@@ -68,6 +77,6 @@ calculatorButtons.addEventListener('click', (event) => {
     inputVerify(event);
 });
 
-const testExpression = [3, "add", 2, "add", 3];
 let expression = [];
+const testExpression = [3, "add", 2, "add", 3];
 console.log(calculate(testExpression));
