@@ -58,13 +58,35 @@ function calculate(inputArray) {
 
 // Take the button that has been clicked and determine whether the button
 // is an operator or number.
-// Current Plan:
-// If expression array is empty first value must be a number
-// if the last element is a number next element must be an operator
-// Expression array must end in a number
 function inputVerify(button) {
     console.log(button.target.classList.value);
     console.log(button.target.value);
+
+    if(button.target.classList.value === 'numkey') {
+
+        if(expression.length % 2 === 0) {
+            expression.push(button.target.value);
+        } else {
+            expression.push(expression.pop() + button.target.value.toString());
+        }
+
+    } else if(button.target.classList.value === 'operator') {
+
+        if(expression.length % 2 === 1) {
+            expression.push(button.target.value);
+        } else {
+            alert("ERROR: Please enter a number");
+        }
+
+    } else if(button.target.value === "calculate") {
+
+        if(expression.length % 2 === 1 && expression.length > 0) {
+            console.log(calculate(expression));
+        } else {
+            alert("ERROR")
+        }
+
+    }
 }
 
 const calculatorButtons = document.getElementById("calc-buttons");
