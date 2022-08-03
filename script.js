@@ -62,6 +62,7 @@ function calculate(inputArray) {
 
 // Take the button that has been clicked and determine whether the button
 // is an operator or number.
+// Will need to refactor function after...
 function inputVerify(button) {
     console.log(button.target.classList.value);
     console.log(button.target.value);
@@ -70,6 +71,8 @@ function inputVerify(button) {
 
         if(checkExpressionNumPos()) {
             expression.push(button.target.value);
+        } else if(memoryStoreState === true) {
+            alert("ERROR: Please enter operator");
         } else {
             expression.push(expression.pop() + button.target.value.toString());
         }
@@ -85,12 +88,14 @@ function inputVerify(button) {
     } else if(button.target.value === "calculate") {
 
         if(!checkExpressionNumPos() && expression.length > 0) {
+            memoryStoreState = true;
             console.log(calculate(expression));
         } else {
             alert("ERROR");
         }
 
-    }
+    } // Add check for AC button that will clear expression and memory state
+    
 }
 
 // Check if expression array is 
@@ -116,5 +121,6 @@ calcButtons.addEventListener('click', (event) => {
 });
 
 let expression = [];
+let memoryStoreState = false; // memory status to avoid result overwrite
 const testExpression = ["3", "add", "2", "add", "3"];
 console.log(calculate(testExpression));
