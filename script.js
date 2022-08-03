@@ -61,7 +61,7 @@ function calculate(inputArray) {
 }
 
 // Take the button that has been clicked and determine whether the button
-// is an operator or number.
+// is an operator or number or ETC function (plusminus, clear)
 // Will need to refactor function after...
 function inputVerify(button) {
     console.log(button.target.classList.value);
@@ -95,7 +95,7 @@ function inputVerify(button) {
         }
 
     } // Add check for AC button that will clear expression and memory state
-    
+
 }
 
 // Check if expression array is 
@@ -122,5 +122,3 @@ calcButtons.addEventListener('click', (event) => {
 
 let expression = [];
 let memoryStoreState = false; // memory status to avoid result overwrite
-const testExpression = ["3", "add", "2", "add", "3"];
-console.log(calculate(testExpression));
