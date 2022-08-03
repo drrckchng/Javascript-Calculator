@@ -33,6 +33,9 @@ function divide(a, b) {
 
 // Calls upon the appropriate expression operator function
 function operate(a, operator, b) {
+    console.log("operatehere");
+    a = parseInt(a);
+    b = parseInt(b);
     if(operator == "add") {
         return add(a, b);
     } else if(operator == "subtract") {
@@ -100,5 +103,5 @@ calculatorButtons.addEventListener('click', (event) => {
 });
 
 let expression = [];
-const testExpression = [3, "add", 2, "add", 3];
+const testExpression = ["3", "add", "2", "add", "3"];
 console.log(calculate(testExpression));
