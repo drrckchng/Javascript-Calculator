@@ -110,12 +110,16 @@ function inputVerify(button) {
 }
 
 // Check if expression array is 
-function checkExpressionNumPos(){
+function checkExpressionNumPos() {
     if(expression.length  % 2 === 0) {
         return true;
     } else {
         return false;
     }
+}
+
+function updateExpDisplay() {
+    
 }
 
 
