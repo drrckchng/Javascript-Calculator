@@ -82,6 +82,7 @@ function inputVerify(button) {
 
         if(!checkExpressionNumPos()) {
             expression.push(button.target.value);
+            memoryStoreState = false;
         } else {
             alert("ERROR: Please enter a number");
         }
