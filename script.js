@@ -71,7 +71,8 @@ function inputVerify(button) {
 
         if(checkExpressionNumPos()) {
             expression.push(button.target.value);
-        } else if(memoryStoreState === true) {
+        // Prevent user from adding numbers onto stored result
+        } else if(!checkExpressionNumPos() && memoryStoreState === true) {
             alert("ERROR: Please enter operator");
         } else {
             expression.push(expression.pop() + button.target.value.toString());
@@ -88,13 +89,22 @@ function inputVerify(button) {
     } else if(button.target.value === "calculate") {
 
         if(!checkExpressionNumPos() && expression.length > 0) {
-            memoryStoreState = true;
+            memoryStoreState = true; // mark current status as storing mem
             console.log(calculate(expression));
         } else {
             alert("ERROR");
         }
+    
+    // Clear last element of expression index
+    } else if(button.target.value === "clear") {
+        expression.pop();
 
-    } // Add check for AC button that will clear expression and memory state
+    } else if(button.target.value === "all-clear") {
+        expression = [];
+        memoryStoreState = false;
+
+    }
+    // Add check for AC button that will clear expression and memory state
 
 }
 
