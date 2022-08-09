@@ -117,17 +117,25 @@ function checkExpressionNumPos() {
     }
 }
 
-function updateExpDisplay() {
-    calcExpDisplay.innerText = "";
+function updateDisplay() {
+    calcDisplay.innerText = "";
     expression.forEach(element => {
-        calcExpDisplay.innerText += element
+        if(element === "divide") {
+            element = "\xF7";
+        } else if( element === "multiply") {
+            element = "\xD7";
+        } else if(element === "subtract") {
+            element = "\u2212";
+        } else if(element === "add") {
+            element = "\x2B";
+        }
+        calcDisplay.innerText += element;
     });
 }
 
 
 const calcButtons = document.getElementById("calc-buttons");
-const calcExpDisplay = document.getElementById("expression-display");
-const calcResultDisplay = document.getElementById("result-display");
+const calcDisplay = document.getElementById("expression-display");
 
 calcButtons.addEventListener('click', (event) => {
     // Do nothing if click is not on a button
@@ -135,7 +143,7 @@ calcButtons.addEventListener('click', (event) => {
       return;
     }
     inputVerify(event);
-    updateExpDisplay();
+    updateDisplay();
 });
 
 let expression = [];
