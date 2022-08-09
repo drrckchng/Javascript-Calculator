@@ -105,7 +105,6 @@ function inputVerify(button) {
         memoryStoreState = false;
 
     }
-    // Add check for AC button that will clear expression and memory state
 
 }
 
@@ -119,7 +118,10 @@ function checkExpressionNumPos() {
 }
 
 function updateExpDisplay() {
-    
+    calcExpDisplay.innerText = "";
+    expression.forEach(element => {
+        calcExpDisplay.innerText += element
+    });
 }
 
 
@@ -133,6 +135,7 @@ calcButtons.addEventListener('click', (event) => {
       return;
     }
     inputVerify(event);
+    updateExpDisplay();
 });
 
 let expression = [];
