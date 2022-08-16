@@ -14,13 +14,28 @@ body {
     width: 100vw;
 }
 
+#calc-display {
+    font-size: xx-large;
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    width: 30vh;
+    height: 100px;
+    padding: 10px;
+    border: solid;
+}
+
 #calc-buttons {
-    width: 30vw;
     aspect-ratio: 9/12;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
     gap: 5px;
+}
+
+#calculator-wrapper {
+    border: solid;
+    padding: 50px;
 }
 
 #zero {
