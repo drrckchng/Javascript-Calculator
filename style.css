@@ -14,11 +14,16 @@ body {
     width: 100vw;
 }
 
-#calculator-wrapper {
-    width:300px;
+#calc-buttons {
+    width: 30vw;
+    aspect-ratio: 9/12;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 5px;
 }
 
-#calc-buttons button {
-    width:70px;
-    height:50px;
+#zero {
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
