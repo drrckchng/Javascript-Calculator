@@ -20,8 +20,8 @@ function divide(a, b) {
 
 // Calls upon the appropriate expression operator function
 function operate(a, operator, b) {
-    a = parseInt(a);
-    b = parseInt(b);
+    a = parseFloat(a);
+    b = parseFloat(b);
     if(operator == "add") {
         return add(a, b);
     } else if(operator == "subtract") {
@@ -52,11 +52,23 @@ function calculate(inputArray) {
 // Will need to refactor function after...
 function inputVerify(button) {
     if(button.target.classList.value === 'numkey') {
+
+        let lastElement = expression[expression.length - 1];
+
         if(checkExpressionNumPos()) {
             expression.push(button.target.value);
         // Prevent user from adding numbers onto stored result
         } else if(!checkExpressionNumPos() && memoryStoreState === true) {
             alert("ERROR: Please enter operator");
+        // Prevent user from entering more than one decimal
+        } else if (
+            lastElement.charAt(lastElement.length - 1) == "." &&
+            button.target.value === "."
+        ){
+            alert("test");
+        // Prevent user from entering more than one decimal PLACE
+        } else if (lastElement.split(".")[1] > 1) {
+            alert("No no no");
         } else {
             expression.push(expression.pop() + button.target.value.toString());
         }
