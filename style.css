@@ -47,13 +47,17 @@ body {
 }
 
 #calc-buttons button {
+    aspect-ratio: 1 / 1;
     color: #f1f1f1;
     font-size: 1.7em;
-    border-radius: 50px;
+    border-radius: 50%;
     border: 0;
 }
 
-
+#calc-buttons #zero {
+    aspect-ratio: 2 / 1;
+    border-radius: 50px;
+}
 
 #zero {
     grid-column-start: 1;
