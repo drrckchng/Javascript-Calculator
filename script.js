@@ -65,10 +65,10 @@ function inputVerify(button) {
             lastElement.charAt(lastElement.length - 1) == "." &&
             button.target.value === "."
         ){
-            alert("test");
+            alert("ERROR: You can only enter one decimal");
         // Prevent user from entering more than one decimal PLACE
         } else if (lastElement.split(".")[1] > 1) {
-            alert("No no no");
+            alert("ERROR: You can only enter one decimal place");
         } else {
             expression.push(expression.pop() + button.target.value.toString());
         }
