@@ -1,7 +1,3 @@
-// Things to keep in mind...
-// Implement alert with a universal error (red screen/screen shake/err msg)
-
-
 function add(a, b) {
     return a + b;
 }
@@ -54,7 +50,6 @@ function roundToTwo(num) {
 
 // Take the button that has been clicked and determine whether the button
 // is an operator or number or ETC function (plusminus, clear)
-// Will need to refactor function after...
 function inputVerify(button) {
     if(button.target.classList.value === 'numkey') {
 
